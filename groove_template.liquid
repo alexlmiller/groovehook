@@ -1,0 +1,28 @@
+{% if {{custName}} == "No Customer With This Email" %}
+  No Shopify Customer Account Associated With This Email Address
+
+{% else %}
+
+<ul>
+  <li><b>Name:</b> <a href="https://URL.myshopify.com/admin/customers/{{custId}}">{{custName}}</a></li>
+  <br/>
+  <li><b>Address:</b></li>
+  <li> {{address1}}, {{address2}}</li>
+  <li>{{city}}, {{state}} {{zip}}</li>
+  <li>{{phone}}</li>
+</ul>
+  <br/>
+<b>Order Info</b>
+<ul>
+  <li><b>Total Orders:</b> {{numOrders}}</li>
+  <li><b>Total Spent:</b> {{totalSpend}}</li>
+  <br/>
+  <li><b>Last Order #:</b> <a href="https://STOREURL.myshopify.com/admin/orders/{{lastOrderId}}">{{lastOrder}}</a></li>
+  <li><b>Last Order Date:</b> {{loDate | datetime: '%b %d, %Y' }}</li>
+  <li><b>Last Order Amount:</b> ${{loTotal}}</li>
+  <br/>
+  <li><b>Last Order Items</b></li>
+  <li>{{skus}}</li>
+</ul>
+
+{% endif %}
